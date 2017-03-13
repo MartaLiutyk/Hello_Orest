@@ -41,7 +41,7 @@ public class GridViewFragment extends Fragment {
             public void onClick(View view) {
                 FragmentActivity activity = getActivity();
                 MainActivity mainActivity = (MainActivity) activity;
-                mainActivity.showFragment(new RecycleView());
+                mainActivity.showFragment(new RecyclerViewFragment());
             }
         });
         return view;
