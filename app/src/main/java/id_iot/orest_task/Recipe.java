@@ -14,6 +14,7 @@ public class Recipe {
         recipies.add(new Recipe("Chicken", "chicken,pepper", R.drawable.chicken));
         recipies.add(new Recipe("Beef", "beef,pepper,salt", R.drawable.beef));
         recipies.add(new Recipe("Sweets", "berries", R.drawable.bisquits));
+        recipies.add(new Recipe("Sweets", "berries", R.drawable.bisquits));
     }
 
     private Recipe(String name, String detail, int photo){
@@ -36,5 +37,26 @@ public class Recipe {
 
     public int getRecipePhoto(){
         return this.recipePhoto;
+    }
+
+
+    public List<Recipe> findRecipe(Recipe recipeName) {
+        List<Recipe> result = new ArrayList<>();
+
+        for (Recipe i : recipies) {
+            if  (i.getRecipeName().equals(recipeName))
+                result.add(i);
+        }
+
+        if (result.size() != 0)
+            showRecipe(result);
+        else
+            System.out.println("Found nothing");
+        return result;
+    }
+
+    private void showRecipe(List<Recipe> input) {
+        for (Recipe i : input)
+            System.out.println(i.getRecipeName() + " " + i.getRecipeDetail() + " " );
     }
 }

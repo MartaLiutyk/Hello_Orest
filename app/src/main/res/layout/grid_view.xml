@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/changeToCard"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/tocard"
+        app:backgroundTint="@color/colorGreenBackground"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 
     <GridView
         android:id="@+id/gridview"
@@ -14,18 +26,8 @@
         android:numColumns="2"
         android:stretchMode="columnWidth"
         android:verticalSpacing="8dp"
-        android:padding="8dp"/>
-
-    <android.support.design.widget.FloatingActionButton xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/changeToCard"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignBottom="@id/gridview"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/tocard"
-        app:backgroundTint="@color/colorGreenBackground"
-        android:layout_marginBottom="20dp"/>
+        android:padding="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
