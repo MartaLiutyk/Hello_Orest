@@ -10,11 +10,12 @@ public class Recipe {
     private ArrayList<Recipe> recipies = new ArrayList<>();
 
     public Recipe(){
-        recipies.add(new Recipe("Caesar salad", "chicken,salad,cheese", R.drawable.salad));
-        recipies.add(new Recipe("Chicken", "chicken,pepper", R.drawable.chicken));
-        recipies.add(new Recipe("Beef", "beef,pepper,salt", R.drawable.beef));
+        recipies.add(new Recipe("Birds milk", "milk, bird, food", R.drawable.birdsmilk));
+        recipies.add(new Recipe("Honey cake", "honey, sugar, milk", R.drawable.cake));
+        recipies.add(new Recipe("Cookie", "mint", R.drawable.pyrig));
         recipies.add(new Recipe("Sweets", "berries", R.drawable.bisquits));
-        recipies.add(new Recipe("Sweets", "berries", R.drawable.bisquits));
+        recipies.add(new Recipe("Cookies", "marchmello,chocolade", R.drawable.marchmello));
+        recipies.add(new Recipe("Something tasty", "sugar,fat", R.drawable.tasty));
     }
 
     private Recipe(String name, String detail, int photo){
