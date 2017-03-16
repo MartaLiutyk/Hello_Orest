@@ -13,10 +13,9 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/grid_name"
         android:layout_alignBottom="@id/grid_image"
-        android:background="@color/colorTransparentBlack"
-        android:textColor="@color/colorWhite"/>
+        android:background="@color/colorTransparentBlack" />
 
 </RelativeLayout>
