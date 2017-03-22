@@ -15,8 +15,10 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
-public class RecyclerViewFragment extends Fragment {
+import java.util.ArrayList;
 
+public class RecyclerViewFragment extends Fragment {
+    private ArrayList<Recipe> recipes;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     FloatingActionButton changeToGrid;
@@ -28,12 +30,14 @@ public class RecyclerViewFragment extends Fragment {
         View view = inflater.inflate(R.layout.recycler_view, container, false);
         getActivity().setTitle("Menu");
 
+        recipes = ((MainActivity) getActivity()).getRecipesList();
+
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
 
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        final RecyclerAdapter adapter = new RecyclerAdapter();
+        final RecyclerAdapter adapter = new RecyclerAdapter(recipes);
         recyclerView.setAdapter(adapter);
 
         changeToGrid = (FloatingActionButton) view.findViewById(R.id.changeToGrid);

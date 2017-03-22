@@ -10,17 +10,20 @@ import android.support.v7.widget.Toolbar;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private Fragment currentFragment;
     TabLayout tabLayout;
+    private RecipeList recipeList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_view);
-
+        recipeList = new RecipeList();
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Recipes"));
         tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
@@ -29,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         showFragment(new RecyclerViewFragment());
+    }
+    public ArrayList<Recipe> getRecipesList(){
+        return this.recipeList.getRecipes();
     }
 
     public void showFragment(Fragment fragment) {

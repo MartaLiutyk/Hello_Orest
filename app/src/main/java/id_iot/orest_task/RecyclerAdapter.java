@@ -9,12 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    Recipe ITEM = new Recipe();
-
+    private ArrayList<Recipe> recipes;
     class ViewHolder extends RecyclerView.ViewHolder{
 
        public ImageView itemImage;
@@ -29,8 +29,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             itemDetail = (TextView) itemView.findViewById(R.id.item_detail);
             cardView = (CardView) itemView.findViewById(R.id.cv);
         }
-    }
 
+    }
+public RecyclerAdapter (ArrayList<Recipe> recipes){
+    this.recipes = recipes;
+}
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i){
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_view, viewGroup, false);
@@ -40,20 +43,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int i){
-        viewHolder.itemName.setText(ITEM.getRecipies().get(i).getRecipeName());
-        viewHolder.itemDetail.setText(ITEM.getRecipies().get(i).getRecipeDetail());
-        viewHolder.itemImage.setImageResource(ITEM.getRecipies().get(i).getRecipePhoto());
+        viewHolder.itemName.setText(recipes.get(i).getRecipeName());
+        viewHolder.itemDetail.setText(recipes.get(i).getRecipeDetail());
+        viewHolder.itemImage.setImageResource(recipes.get(i).getRecipePhoto());
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), ITEM.getRecipies().get(viewHolder.getAdapterPosition()).getRecipeName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), recipes.get(viewHolder.getAdapterPosition()).getRecipeName(), Toast.LENGTH_SHORT).show();
+
+
             }
         });
     }
 
     @Override
     public int getItemCount(){
-        return ITEM.getRecipies().size();
+        return recipes.size();
     }
 
 }
