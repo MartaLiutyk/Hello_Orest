@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_view);
         recipeList = new RecipeList();
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Recipes"));
-        tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
-        tabLayout.addTab(tabLayout.newTab().setText("To buy"));
-        tabLayout.addTab(tabLayout.newTab().setText("Chosen recipes"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_book_black_24dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_content_paste_black_24dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_favorite_black_24dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_shopping_basket_black_24dp));
 
 
         showFragment(new RecyclerViewFragment());
