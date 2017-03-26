@@ -8,7 +8,8 @@ import java.util.ArrayList;
  */
 
 public class RecipeList {
-    private ArrayList<Recipe> recipes = new ArrayList<>();
+
+   private ArrayList<Recipe> recipes = new ArrayList<>();
 
     public RecipeList(){
         recipes.add(new Recipe("Cocoa cocktail", "milk,cocoa,water", R.drawable.cocoacocktail));

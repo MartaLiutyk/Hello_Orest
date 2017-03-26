@@ -14,25 +14,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GridViewAdapter extends BaseAdapter implements Filterable {
-    private ValueFilter valueFilter;
-    private Context mContext;
+    private Context context;
     private ArrayList<Recipe> recipes;
     private ArrayList<Recipe> backupRecipes;
+    private ValueFilter valueFilter;
 
     public GridViewAdapter(Context context, ArrayList<Recipe> recipes) {
-        this.mContext = context;
+        this.context = context;
         this.recipes = recipes;
         this.backupRecipes = recipes;
     }
 
+
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return recipes.get(position);
     }
 
     @Override
@@ -41,18 +42,21 @@ public class GridViewAdapter extends BaseAdapter implements Filterable {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+        final LayoutInflater layoutInflater = LayoutInflater.from(context);
         convertView = layoutInflater.inflate(R.layout.grid_view_cell, null);
 
         ImageView recipePhoto = (ImageView) convertView.findViewById(R.id.grid_image);
         TextView recipeName = (TextView) convertView.findViewById(R.id.grid_name);
+        TextView recipeDetail = (TextView) convertView.findViewById(R.id.grid_detail);
         recipeName.setText(recipes.get(position).getRecipeName());
+        recipeDetail.setText(recipes.get(position).getRecipeDetail());
         recipePhoto.setImageResource(recipes.get(position).getRecipePhoto());
         return convertView;
     }
 
-
-
+    public ArrayList<Recipe> getRecipes(){
+        return this.recipes;
+    }
 
     @Override
     public Filter getFilter() {
@@ -98,9 +102,5 @@ public class GridViewAdapter extends BaseAdapter implements Filterable {
             recipes = (ArrayList) results.values;
             notifyDataSetChanged();
         }
-    }
-
-    public ArrayList<Recipe> getRecipes(){
-        return this.recipes;
     }
 }

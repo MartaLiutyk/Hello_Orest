@@ -5,17 +5,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/changeToCard"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/tocard"
-        app:backgroundTint="@color/colorGreenBackground"
-        android:layout_marginBottom="10dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
-
     <android.support.v7.widget.SearchView
         android:id="@+id/searchRecipe"
         android:layout_width="match_parent"
@@ -25,7 +14,7 @@
 
     <GridView
         android:layout_below = "@+id/searchRecipe"
-        android:id="@+id/gridview"
+        android:id="@+id/collection_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

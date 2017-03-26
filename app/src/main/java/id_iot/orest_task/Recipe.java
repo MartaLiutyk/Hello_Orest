@@ -7,6 +7,7 @@ public class Recipe {
     private String recipeName;
     private String recipeDetail;
     private int recipePhoto;
+    private boolean favorite = false;
 
     public Recipe(String name, String detail, int photo){
         this.recipeName = name;
@@ -26,4 +27,16 @@ public class Recipe {
         return this.recipePhoto;
     }
 
+    public boolean getFavorite(){
+        return this.favorite;
+    }
+
+    public void changeFavorite(){
+        if (this.favorite == false) {
+            this.favorite = true;
+        }
+        else{
+            this.favorite = false;
+        }
+    }
 }
